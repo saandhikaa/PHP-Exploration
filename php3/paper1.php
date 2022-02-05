@@ -39,15 +39,15 @@
 </head>
 <body>
     <table border="1" cellpadding="10" cellspacing="0">
-        <?php 
-            for ($s = 1; $s <= 3; $s++){
-                echo "<tr>";
-                for ($a = 1; $a <= 5; $a++){
-                    echo "<td>$s, $a</td>";
-                }
-                echo "</tr>";
-            }
-        ?>
+        <?php for ($s = 1; $s <= 3; $s++){ ?>
+            <tr>
+                <?php for ($a = 1; $a <= 5; $a++){ ?>
+                    <td>
+                        <?php echo "$s, $a"; ?>
+                    </td>
+                <?php } ?>
+            </tr>
+        <?php } ?>
     </table>
 </body>
 </html>
