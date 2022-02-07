@@ -1,4 +1,5 @@
 <?php 
+    // menggunakan file lain
     require 'functions.php';
     $pacarku = query("SELECT * FROM pacarku")
 ?>
