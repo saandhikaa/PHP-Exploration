@@ -11,7 +11,10 @@
 </head>
 
 <body>
-    <h1>Pacarku</h1>    
+    <h1>Pacarku</h1>  
+    
+    <a href="addtable.php">Tambah pacar</a><br><br>
+
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>No.</th>
@@ -32,7 +35,7 @@
                 <td><?= $row["hobi"]; ?></td>
                 <td>
                     <a href="">ubah</a><br><br>
-                    <a href="">hapus</a>
+                    <a href="deltable.php?id=<?= $row["id"] ?>">hapus</a>
                 </td>
 
             </tr>
