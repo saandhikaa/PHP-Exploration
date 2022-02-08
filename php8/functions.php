@@ -2,6 +2,7 @@
     // koneksi ke database
     $conn = mysqli_connect("localhost", "root", "", "pacar");
 
+
     function query($query){
         global $conn;
         $result = mysqli_query($conn, $query);
@@ -12,12 +13,25 @@
         return $rows;
     }
 
-    function tambah($data){
+
+    function getpacar(){
+        $query = "INSERT INTO pacarku VALUES ('', 'Rose', '021197', 'eating', 'rose.png')";
+
+        global $conn;
+        mysqli_query($conn, $query);
+    }
+
+    function tambah($data, $newid){
         // ambil data dari form
         $fnama = htmlspecialchars($data["nama"]);
         $fbirth = htmlspecialchars($data["birth"]);
         $fhobi = htmlspecialchars($data["hobi"]);
-        $ffoto = htmlspecialchars($data["foto"]);
+
+        // upload foto
+        $ffoto = upload($newid, $fnama);
+        if (!$ffoto){
+            return false;
+        }
 
         // query insert data
         $query = "INSERT INTO pacarku VALUES ('', '$fnama', '$fbirth', '$fhobi', '$ffoto')";
@@ -29,11 +43,49 @@
         return mysqli_affected_rows($conn);
     }
 
+
+    function upload($newid, $newname){
+        $namafoto = $_FILES['foto']['name'];
+        $ukuranfoto = $_FILES['foto']['size'];
+        $error = $_FILES['foto']['error'];
+        $tmpnama = $_FILES['foto']['tmp_name'];
+
+        // cek gambar sudah di-upload
+        if ($error === 4){
+            echo "Gambar belum di upload<br>";
+            return false;
+        }
+
+        // cek ektensi file yg di-upload
+        $mustfile = ['jpg', 'jpeg', 'png'];
+        $getext = explode('.', $namafoto);
+        $getext = strtolower(end($getext));
+        if (!in_array($getext, $mustfile)){
+            echo "Foto tidak terlihat, tidak diterima<br>";
+            return false;
+        }
+
+        // cek ukuran gambar yg di-upload
+        if ($ukuranfoto > 2000000){
+            echo "Foto terlalu HD, tidak diterima<br>";
+            return false;
+        }
+
+        // mendapatkan nama foto baru
+        $newfotoname = $newid . "-" . $newname . "." . $getext;
+
+        move_uploaded_file($tmpnama, 'image/' . $newfotoname);
+
+        return $newfotoname;
+    }
+
+
     function hapus($id){
         global $conn;
         mysqli_query($conn, "DELETE FROM pacarku WHERE id = $id");
         return mysqli_affected_rows($conn);
     }
+
 
     function ubah($data){
         // ambil data dari form
@@ -41,8 +93,14 @@
         $fnama = htmlspecialchars($data["nama"]);
         $fbirth = htmlspecialchars($data["birth"]);
         $fhobi = htmlspecialchars($data["hobi"]);
-        $ffoto = htmlspecialchars($data["foto"]);
-
+        $ffotolama = htmlspecialchars($data["fotolama"]);
+        
+        // cek ada gambar yg di-upload
+        if ($_FILES['foto']['error'] === 4){
+            $ffoto = $ffotolama;
+        }else{
+            $ffoto = upload($id,$fnama);
+        }
         // query insert data
         $query = "UPDATE pacarku    SET     nama = '$fnama', 
                                             birth = '$fbirth', 
@@ -56,6 +114,7 @@
         // cek data berhasil ditambahkan
         return mysqli_affected_rows($conn);
     }
+
 
     function cari($keyword){
         $query = "SELECT * FROM pacarku WHERE 

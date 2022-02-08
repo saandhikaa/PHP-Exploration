@@ -1,7 +1,13 @@
 <?php 
+    //echo "<script> alert('W E L C O M E') </script>";
+    
     // menggunakan file lain
     require 'functions.php';
     $pacarku = query("SELECT * FROM pacarku");
+        
+    if (!$pacarku){
+        getpacar();
+    }
 
     if (isset($_POST["cari"])){
         $pacarku = cari($_POST["keywords"]);
@@ -18,7 +24,7 @@
 <body>
     <h1>Pacarku</h1>  
     
-    <a href="addtable.php">Pacar Baru</a><br><br>
+    <a href="addtable.php?id=<?=end($pacarku)["id"] + 1?>">Pacar Baru</a><br><br>
 
     <form action="" method="post">
         <input type="text" name="keywords" size="30" autofocus placeholder="Cari disini.." autocomplete="off">
@@ -45,8 +51,8 @@
                 <td><?= $row["birth"]; ?></td>
                 <td><?= $row["hobi"]; ?></td>
                 <td>
-                    <a href="edittable.php?id=<?= $row["id"] ?>">ubah</a><br><br>
-                    <a href="deltable.php?id=<?= $row["id"] ?>">hapus</a>
+                    <a href="edittable.php?id=<?= $row["id"] ?>">Edit bio</a><br><br>
+                    <a href="deltable.php?id=<?= $row["id"] ?>" onclick="return confirm('Are you sure?')">Putus</a>
                 </td>
 
             </tr>

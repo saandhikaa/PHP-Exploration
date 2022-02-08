@@ -1,13 +1,15 @@
 <?php 
     require 'functions.php';
-    
+    $newid = $_GET["id"];
+
     // cek tombol sudah/belum ditekan
     // "submit" --> name
     if (isset($_POST["submit"])){
-        if (tambah($_POST) > 0){
+
+        if (tambah($_POST, $newid) > 0){
             header("Location: index.php");
         }else{
-            echo "gagal";
+            echo "Biodata pacar tidak diterima";
         }
 
     }
@@ -22,7 +24,7 @@
 <body>
     <h1>Biodata pacar</h1>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <ul>
             <li>
                 <label for="nama">Nama: </label>
@@ -41,7 +43,7 @@
             
             <li>
                 <label for="foto">Foto: </label>
-                <input type="text" name="foto" id="foto" required>
+                <input type="file" name="foto" id="foto" >
             </li>
 
             <br><br>

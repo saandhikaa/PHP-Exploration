@@ -28,8 +28,9 @@
 <body>
     <h1>Biodata pacar</h1>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $pacar["id"]; ?>">
+        <input type="hidden" name="fotolama" value="<?= $pacar["foto"]; ?>">
         <ul>
             <li>
                 <label for="nama">Nama: </label>
@@ -47,8 +48,9 @@
             </li>
             
             <li>
-                <label for="foto">Foto: </label>
-                <input type="text" name="foto" id="foto" required value="<?= $pacar["foto"] ?>">
+                <label for="foto">Foto: </label><br>
+                <img src="image/<?= $pacar['foto'];?>" width="200px"><br>
+                <input type="file" name="foto" id="foto">
             </li>
 
             <br><br>
