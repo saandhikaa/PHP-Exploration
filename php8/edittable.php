@@ -22,7 +22,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Tambah</title>
+    <title>Edit</title>
 </head>
 
 <body>

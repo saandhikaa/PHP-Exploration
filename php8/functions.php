@@ -56,4 +56,13 @@
         // cek data berhasil ditambahkan
         return mysqli_affected_rows($conn);
     }
+
+    function cari($keyword){
+        $query = "SELECT * FROM pacarku WHERE 
+                    nama LIKE '%$keyword%' OR
+                    birth LIKE '%$keyword%' OR
+                    hobi LIKE '%$keyword%'
+                    ";
+        return query($query);
+    }
 ?>

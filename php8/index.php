@@ -1,7 +1,12 @@
 <?php 
     // menggunakan file lain
     require 'functions.php';
-    $pacarku = query("SELECT * FROM pacarku")
+    $pacarku = query("SELECT * FROM pacarku");
+
+    if (isset($_POST["cari"])){
+        $pacarku = cari($_POST["keywords"]);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +20,12 @@
     
     <a href="addtable.php">Pacar Baru</a><br><br>
 
+    <form action="" method="post">
+        <input type="text" name="keywords" size="30" autofocus placeholder="Cari disini.." autocomplete="off">
+        <button type="submit" name="cari">Cari</button>
+        <button type="submit" name="refresh">Refresh</button><br><br>
+    </form>
+    
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>No.</th>
@@ -29,7 +40,7 @@
         <?php foreach($pacarku as $row): ?>
             <tr>
                 <td><?= $urut; $urut++ ?></td>
-                <td><img src="image/<?php echo $row["foto"];?>" width="100"></td>
+                <td><img src="image/<?= $row["foto"];?>" width="100"></td>
                 <td><?= $row["nama"]; ?></td>
                 <td><?= $row["birth"]; ?></td>
                 <td><?= $row["hobi"]; ?></td>
