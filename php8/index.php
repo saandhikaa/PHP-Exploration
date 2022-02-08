@@ -13,12 +13,12 @@
 <body>
     <h1>Pacarku</h1>  
     
-    <a href="addtable.php">Tambah pacar</a><br><br>
+    <a href="addtable.php">Pacar Baru</a><br><br>
 
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>No.</th>
-            <th>Foto</th>
+            <th>Foto Ayang</th>
             <th>Nama</th>
             <th>Birth</th>
             <th>Hobi</th>
@@ -34,7 +34,7 @@
                 <td><?= $row["birth"]; ?></td>
                 <td><?= $row["hobi"]; ?></td>
                 <td>
-                    <a href="">ubah</a><br><br>
+                    <a href="edittable.php?id=<?= $row["id"] ?>">ubah</a><br><br>
                     <a href="deltable.php?id=<?= $row["id"] ?>">hapus</a>
                 </td>
 
