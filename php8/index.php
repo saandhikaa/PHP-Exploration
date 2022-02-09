@@ -19,8 +19,15 @@
 
     // logout
     if (isset($_POST["logout"])){
+        // hapus session
         session_unset();
         session_destroy();
+
+        // hapus cookie
+        setcookie('id', '', time() - 3600);
+        setcookie('key', '', time() - 3600);
+
+        // kembali ke halaman login
         header("Location: login.php");
     }
 

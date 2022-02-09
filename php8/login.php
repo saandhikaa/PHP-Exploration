@@ -1,12 +1,26 @@
 <?php 
     session_start();
     
+    require 'functions.php';
+
+    // cek cookie
+    if (isset($_COOKIE['id']) && isset($_COOKIE['key'])){
+        $id = $_COOKIE['id'];
+        $key = $_COOKIE['key'];
+
+        $result = mysqli_query($conn, "SELECT username FROM users WHERE id = $id");
+        $row = mysqli_fetch_assoc($result);
+
+        // cek cookie dan username
+        if ($key === hash('sha256', $row['username'])){
+            $_SESSION['login'] = true;
+        }
+    }
+
     if (isset($_SESSION["login"])){
         header("Location: index.php");
         exit;
     }
-
-    require 'functions.php';
 
     if (isset($_POST["login"])){
         $username = $_POST["username"];
@@ -19,8 +33,18 @@
 
             // cek password
             if (password_verify($password, $row["password"])){
+                
                 // set session
                 $_SESSION["login"] = true;
+
+                // cek remember me
+                if (isset($_POST['remember'])){
+                    
+                    // buat cookie
+                    setcookie('id', $row['id'], time()+120);
+                    setcookie('key', hash('sha256', $row['username']), time()+120);
+                }
+
                 header("location: index.php");
                 exit;
             }
@@ -36,7 +60,7 @@
 <head>
     <title>Login</title>
     <style>
-        label{
+        .newline{
             display: block;
         }
     </style>
@@ -51,14 +75,17 @@
     <form action="" method="post">
         <ul>
             <li>
-                <label for="username">Username: </label>
+                <div class="newline"><label for="username">Username: </label></div>
                 <input type="text" name="username" id="username">
                 <br><br>
             </li>
 
             <li>
-                <label for="password">Password: </label>
-                <input type="password" name="password" id="password">
+                <div class="newline"><label for="password">Password: </label></div>
+                <input type="password" name="password" id="password"><br><br>
+                
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember">Remember me</label>
                 <br><br>
             </li>
 
