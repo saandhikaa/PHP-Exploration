@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>Registrasi</title>
     <style>
         label{
             display: block;
@@ -43,7 +43,9 @@
                 <br><br>
             </li>
             
-            <button type="submit" name="daftar">Daftar</button>
+            <button type="submit" name="daftar">Daftar</button><br><br>
+
+            <a href="login.php">Login</a>
         </ul>
     </form>  
 </body>
