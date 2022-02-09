@@ -7,7 +7,7 @@
     
     // menggunakan file lain
     require 'functions.php';
-    $pacarku = query("SELECT * FROM pacarku");
+    $pacarku = query("SELECT * FROM pacarku ORDER BY id DESC");
         
     if (!$pacarku){
         getpacar();
@@ -31,6 +31,18 @@
         header("Location: login.php");
     }
 
+    // pagination
+    $jumlahbaris = count(query("SELECT * FROM pacarku"));
+    $barisperhalaman = 5;
+    $jumlahhalaman = ceil($jumlahbaris / $barisperhalaman);
+
+    //                kondisi                 ? true             : false ;
+    $halamansaatini = isset($_GET["halaman"]) ? $_GET["halaman"] : 1 ;
+
+    $startindex = ($barisperhalaman * $halamansaatini) - $barisperhalaman;
+
+    $pacarku = query("SELECT * FROM pacarku ORDER BY id DESC LIMIT $startindex, $barisperhalaman");
+
 ?>
 
 <!DOCTYPE html>
@@ -50,6 +62,19 @@
         <button type="submit" name="refresh">Refresh</button>
         <button type="submit" name="logout">Logout</button><br><br>
     </form>
+    
+    <!-- navigasi -->
+    <?php if ($halamansaatini > 1): ?>
+        <a href="?halaman=1">first</a>
+        <a href="?halaman=<?= $halamansaatini-1;?>">prev</a>
+    <?php endif; ?>
+    
+    <?= $halamansaatini; ?>
+
+    <?php if ($halamansaatini < $jumlahhalaman): ?>
+        <a href="?halaman=<?= $halamansaatini+1;?>">next</a>
+        <a href="?halaman=<?= $jumlahhalaman ?>">last</a>
+    <?php endif; ?>
     
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
