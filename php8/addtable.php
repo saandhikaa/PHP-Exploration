@@ -1,4 +1,10 @@
 <?php 
+    session_start();
+        
+    if (!isset($_SESSION["login"])){
+        header("Location: login.php");
+    }
+
     require 'functions.php';
     $newid = $_GET["id"];
 
@@ -13,6 +19,7 @@
         }
 
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +55,7 @@
 
             <br><br>
 
-            <button type="submit" name="submit">   Kirim   </button>
+            <button type="submit" name="submit">Kirim</button>
         </ul>
     </form>
 

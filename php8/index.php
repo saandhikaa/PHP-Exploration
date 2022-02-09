@@ -1,5 +1,9 @@
 <?php 
-    //echo "<script> alert('W E L C O M E') </script>";
+    session_start();
+
+    if (!isset($_SESSION["login"])){
+        header("Location: login.php");
+    }
     
     // menggunakan file lain
     require 'functions.php';
@@ -11,6 +15,13 @@
 
     if (isset($_POST["cari"])){
         $pacarku = cari($_POST["keywords"]);
+    }
+
+    // logout
+    if (isset($_POST["logout"])){
+        session_unset();
+        session_destroy();
+        header("Location: login.php");
     }
 
 ?>
@@ -29,7 +40,8 @@
     <form action="" method="post">
         <input type="text" name="keywords" size="30" autofocus placeholder="Cari disini.." autocomplete="off">
         <button type="submit" name="cari">Cari</button>
-        <button type="submit" name="refresh">Refresh</button><br><br>
+        <button type="submit" name="refresh">Refresh</button>
+        <button type="submit" name="logout">Logout</button><br><br>
     </form>
     
     <table border="1" cellpadding="10" cellspacing="0">
