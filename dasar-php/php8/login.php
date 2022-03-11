@@ -91,7 +91,6 @@
 
             <button type="submit" name="login">Login</button><br><br>
 
-            <a href="registration.php">Daftar sekarang</a>
         </ul>
     </form>
 </body>
