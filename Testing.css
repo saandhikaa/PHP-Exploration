@@ -1,0 +1,80 @@
+/* Background */
+.title{
+    font: small-caps bold 80px/80px 'Arial';
+    text-align: center;
+    color: white;
+    background: url(additional/wallpaper\ bing\ 0206.png) center no-repeat;
+    background-size: 100%;
+}
+
+/* font style */
+.style1{
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 40px;
+    font-family: 'Fira Code', Arial;
+
+}
+
+.style2{
+    /*
+    font: -style -variant -weight -size/text-height -family     */
+    font: italic normal   lighter 20px/40px         'calibri';
+    text-indent: 40px;
+    text-align: justify;
+
+}
+
+.style2h2{
+    /*
+    font: -style -variant -weight -size/text-height -family     */
+    font: italic normal   lighter 20px/40px         'calibri';
+    text-indent: 40px;
+    text-align: justify;
+    color: darkslateblue;
+
+}
+
+p.style2h2{
+    font-weight: bold;
+}
+
+/* pseudo calss
+    .calss  :link 
+            :hover 
+            :active 
+            :visited    */
+.style3:hover{
+    color: red;
+    font-weight: bold;
+}
+
+.style3:visited{
+    color: grey;
+}
+
+/*  :first-child
+    :last-child
+    :nth-child(n)   */
+li:first-child a {
+    color:green;
+    font-size: 22px;
+}
+
+/*  :first-of-type
+    :last-of-type*/
+li:first-of-type{
+    color:goldenrod;
+}
+
+p:first-of-type{
+    color: grey;
+}
+
+
+/*-------------------- Specificity --------------------
+    inline > id > class > element
+
+*/
