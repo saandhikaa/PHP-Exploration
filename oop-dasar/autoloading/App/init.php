@@ -6,6 +6,12 @@
     // require_once "Produk/cetakinfo.php";
 
     spl_autoload_register(function($class){
-        require_once __DIR__ . "/Produk/" . $class .  ".php";
+        $class = explode('\\', $class);
+        require_once __DIR__ . "/Product/" . end($class) .  ".php";
+    });
+    
+    spl_autoload_register(function($class){
+        $class = explode('\\', $class);
+        require_once __DIR__ . "/Service/" . end($class) .  ".php";
     });
 ?>
