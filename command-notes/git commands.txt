@@ -63,6 +63,6 @@ Merge 2 repositories git
 git clone <url-repo1>
 git remote add <remote-name-repo2> <url-repo2>
 git fetch <remote-name-repo2>
-git checkout -b <new-branch-repo2> <remote-name-repo2>/main
+git checkout -b <new-branch-repo2> <remote-name-repo2>/,branch-repo2>
 git checkout main
 git merge <branch-repo2> --allow-unrelated-histories
