@@ -56,6 +56,9 @@ git config --global core.editor "code --wait"
 git config --global user.email "<email>"
 git config --global user.name "<full-name>"
 
+git config --global --unset user.email
+git config --global --unset user.name
+
 
 
 Merge 2 repositories git
