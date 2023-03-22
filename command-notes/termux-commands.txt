@@ -1,0 +1,8 @@
+Edit extra-keys
+nano ~/.termux/termux.properties
+
+Change font-family
+copy 'font.ttf' to ~/.termux/
+
+Create automatic commands run at start
+nano ~/.bashrc
