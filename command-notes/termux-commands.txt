@@ -1,8 +1,18 @@
 Edit extra-keys
-nano ~/.termux/termux.properties
+cd ~/.termux/
+nano termux.properties
+extra-keys=[[],[]]
 
 Change font-family
-copy 'font.ttf' to ~/.termux/
+mv font.ttf ~/.termux/
 
 Create automatic commands run at start
-nano ~/.bashrc
+nano ~/.bashrc or ~/.zshrc
+
+switch to zsh terminal
+pkg install git
+pkg install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/romkatv/powerlevel10k $ZSH_CUSTOM/themes/powerlevel10k
+zsh
+p10k configure
