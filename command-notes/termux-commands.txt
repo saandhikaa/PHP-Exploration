@@ -14,5 +14,6 @@ pkg install git
 pkg install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/romkatv/powerlevel10k $ZSH_CUSTOM/themes/powerlevel10k
-zsh
+nano ~/.zshrc
+ZSH_THEME="powerlevel10k/powerlevel10k"
 p10k configure
