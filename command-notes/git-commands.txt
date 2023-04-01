@@ -15,6 +15,7 @@ git branch <new-branch-name>
 git branch <new-branch-name> <commit-hash-code>
 git branch -d <branch-name>
 git branch -D <branch-name>
+git branch -m <new-name>
 
 git merge <new-branch>
 
