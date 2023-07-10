@@ -17,3 +17,13 @@ git clone https://github.com/romkatv/powerlevel10k $ZSH_CUSTOM/themes/powerlevel
 nano ~/.zshrc
 ZSH_THEME="powerlevel10k/powerlevel10k"
 p10k configure
+
+install apache2 webserver
+apt update
+apt install apache2
+nano ~/../usr/etc/apache2/httpd.conf
+comment out #ServerName
+change DocumentRoot and Directory tag attribute to "/data/data/com.termux/files/home/storage/shared"
+change AllowOverride none to AllowOverride All inside Directory tag
+apachectl start
+apachectl stop
