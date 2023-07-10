@@ -13,6 +13,8 @@ switch to zsh terminal
 pkg install git
 pkg install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+change zsh theme to powerlevel10k
 git clone https://github.com/romkatv/powerlevel10k $ZSH_CUSTOM/themes/powerlevel10k
 nano ~/.zshrc
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -28,9 +30,9 @@ install apache2 webserver
 apt update
 apt install apache2
 nano ~/../usr/etc/apache2/httpd.conf
-comment out #ServerName
+comment out #ServerName www.example.com:8080
 change DocumentRoot and Directory tag attribute to "/data/data/com.termux/files/home/storage/shared"
-change AllowOverride none to AllowOverride All inside Directory tag
+change AllowOverride None to AllowOverride All inside Directory tag
 apachectl start
 apachectl stop
 
