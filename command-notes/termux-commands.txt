@@ -18,6 +18,12 @@ nano ~/.zshrc
 ZSH_THEME="powerlevel10k/powerlevel10k"
 p10k configure
 
+add zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+nano ~/.zshrc
+change to plugins=(git zsh-autosuggestions)
+source ~/.zshrc
+
 install apache2 webserver
 apt update
 apt install apache2
@@ -27,3 +33,4 @@ change DocumentRoot and Directory tag attribute to "/data/data/com.termux/files/
 change AllowOverride none to AllowOverride All inside Directory tag
 apachectl start
 apachectl stop
+
