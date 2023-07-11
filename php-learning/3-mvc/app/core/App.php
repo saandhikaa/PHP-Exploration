@@ -1,12 +1,21 @@
 <?php
     class App {
-        protected $controller = 'home';
+        protected $controller = 'Home';
         protected $method = 'index';
         protected $params = array();
         
         public function __construct() {
             $url = $this->parseURL();
-            var_dump($url);
+            
+            // get controller from url
+            if (file_exists("../app/controllers/" . $url[0] . ".php")) {
+                $this->controller = $url[0];
+                unset($url[0]);
+            }
+            
+            // create instance controller
+            require_once "../app/controllers/" . $this->controller . ".php";
+            $this->controller = new $this->controller;
         }
         
         public function parseURL() {
