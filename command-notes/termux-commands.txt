@@ -50,3 +50,16 @@ mysqld
 open new session
     pkill mysqld
 
+install phpmyadmin
+download phpmyadmin from https://www.phpmyadmin.net
+extract to root/ directory webserver
+rename to phpmyadmin/
+open termux
+cd phpmyadmin/
+cp config.sample.inc.php config.inc.php
+nano config.inc.php
+locate to $cfg['blowfish_secret']
+get blowfish key from https://www.motorsportdiesel.com/tools/blowfish-salt/pma/
+update $cfg['blowfish_secret'] = 'key'
+change $cfg server host = '127.0.0.1'
+change $cfg server AllowNoPassword = true
