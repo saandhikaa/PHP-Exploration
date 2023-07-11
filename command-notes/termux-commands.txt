@@ -43,3 +43,10 @@ create phpinfo/index.php in root/ directory
     <?php phpinfo(); ?>
 apachectl start
 apachectl stop
+
+install mariadb
+pkg install mariadb
+mysqld
+open new session
+    pkill mysqld
+
