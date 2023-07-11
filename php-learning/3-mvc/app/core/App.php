@@ -16,6 +16,14 @@
             // create instance controller
             require_once "../app/controllers/" . $this->controller . ".php";
             $this->controller = new $this->controller;
+            
+            // get method from url
+            if (isset($url[1])) {
+                if (method_exists($this->controller, $url[1])) {
+                    $this->method = $url[1];
+                    unset($url[1]);
+                }
+            }
         }
         
         public function parseURL() {
