@@ -26,13 +26,20 @@ nano ~/.zshrc
 change to plugins=(git zsh-autosuggestions)
 source ~/.zshrc
 
-install apache2 webserver
-apt update
-apt install apache2
+install php webserver
+pkg update
+pkg install php-apache
 nano ~/../usr/etc/apache2/httpd.conf
+comment out LoadModule mpm_prefork_module...
+create: LoadModule php_module libexec/apache2/libphp.so
+    <FilesMatch \.php$>
+        SetHandler application/x-httpd-php
+    </FilesMatch>
+comment LoadModule mpm_worker_module...
 comment out #ServerName www.example.com:8080
 change DocumentRoot and Directory tag attribute to "/data/data/com.termux/files/home/storage/shared"
-change AllowOverride None to AllowOverride All inside Directory tag
+switch AllowOverride to All
+create phpinfo/index.php in root/ directory
+    <?php phpinfo(); ?>
 apachectl start
 apachectl stop
-
