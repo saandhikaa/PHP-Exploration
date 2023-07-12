@@ -1,8 +1,13 @@
 <?php
     class About extends Controller {
         public function index() {
-            $this->view();
-            echo "About/index";
+            $data = array(
+                "judul" => "Tentang saya"
+            );
+            
+            $this->view("templates/header", $data);
+            $this->view("about/index");
+            $this->view("templates/footer");
         }
     }
 ?>
