@@ -24,6 +24,11 @@
                     unset($url[1]);
                 }
             }
+            
+            // get parameters from url
+            if (!empty($url)) {
+                $this->params = array_values($url);
+            }
         }
         
         public function parseURL() {
