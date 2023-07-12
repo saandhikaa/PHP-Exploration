@@ -8,9 +8,11 @@
             $url = $this->parseURL();
             
             // get controller from url
-            if (file_exists("../app/controllers/" . $url[0] . ".php")) {
-                $this->controller = $url[0];
-                unset($url[0]);
+            if (!empty($url)) {
+                if (file_exists("../app/controllers/" . $url[0] . ".php")) {
+                    $this->controller = $url[0];
+                    unset($url[0]);
+                }
             }
             
             // create instance controller
@@ -18,7 +20,7 @@
             $this->controller = new $this->controller;
             
             // get method from url
-            if (isset($url[1])) {
+            if (isset($url[1]) && !isset($url[0])) {
                 if (method_exists($this->controller, $url[1])) {
                     $this->method = $url[1];
                     unset($url[1]);
@@ -26,9 +28,11 @@
             }
             
             // get parameters from url
-            if (!empty($url)) {
+            if (isset($url[2]) && !isset($url[0]) && !isset($url[1])) {
                 $this->params = array_values($url);
             }
+            
+            call_user_func_array([$this->controller, $this->method], $this->params);
         }
         
         public function parseURL() {
