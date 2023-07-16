@@ -21,6 +21,9 @@
           <a class="nav-link" href="<?=BASEURL;?>">Home</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="<?=BASEURL;?>pacar">Pacar</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="<?=BASEURL;?>about">About</a>
         </li>
       </ul>
