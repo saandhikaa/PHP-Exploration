@@ -9,6 +9,7 @@ git add .
 git commit
 git commit -m  "message"
 git commit -am "message"
+git commit --amend -m "New commit message"
 
 git branch
 git branch <new-branch-name>
