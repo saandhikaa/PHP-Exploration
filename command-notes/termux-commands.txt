@@ -31,14 +31,17 @@ pkg update
 pkg install php-apache
 nano ~/../usr/etc/apache2/httpd.conf
 comment out LoadModule mpm_prefork_module...
-create: LoadModule php_module libexec/apache2/libphp.so
+create:
+    LoadModule php_module libexec/apache2/libphp.so
     <FilesMatch \.php$>
         SetHandler application/x-httpd-php
     </FilesMatch>
 comment LoadModule mpm_worker_module...
+comment out LoadModule rewrite_module...
 comment out #ServerName www.example.com:8080
 change DocumentRoot and Directory tag attribute to "/data/data/com.termux/files/home/storage/shared"
 switch AllowOverride to All
+add index.php at #directoryIndex
 create phpinfo/index.php in root/ directory
     <?php phpinfo(); ?>
 apachectl start
