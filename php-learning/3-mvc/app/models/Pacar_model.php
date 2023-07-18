@@ -1,22 +1,15 @@
 <?php
     class Pacar_model {
-        private $dbh;   // datanase handler
-        private $stmt;  // statement 
+        private $table = "pacarku";
+        private $db;
         
         public function __construct() {
-            $dsn = 'mysql:host=127.0.0.1:3306;dbname=phpmvc';  // data source name
-            
-            try {
-                $this->dbh = new PDO($dsn, 'root', '');
-            } catch (PDOException $e) {
-                die($e->getMessage());
-            }
+            $this->db = new Database;
         }
         
         public function daftarPacar() {
-            $this->stmt = $this->dbh->prepare('SELECT * FROM pacarku');
-            $this->stmt->execute();
-            return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+            $this->db->query('SELECT * FROM ' . $this->table);
+            return $this->db->resultSet();
         }
     }
 ?>
