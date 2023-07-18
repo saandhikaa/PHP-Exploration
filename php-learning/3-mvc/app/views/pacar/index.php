@@ -1,10 +1,11 @@
 <div class="row mx-3 my-4">
-    <h2>Daftar pacar</h3>
-    <?php foreach ($data["pacarku"] as $pacarku): ?>
-        <h4 class="fs-7 mt-2"><?= $pacarku["nama"]; ?></h4>
-        <ul class="mx-3">
-            <li><?= $pacarku["ultah"]; ?></li>
-            <li><?= $pacarku["negara"]; ?></li>
-        </ul>
-    <?php endforeach; ?>
+    <h2>Daftar pacar</h2>
+    <ul class="list-group">
+        <?php foreach ($data["pacarku"] as $pacarku): ?>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <?= $pacarku["nama"]; ?>
+                <a href="<?=BASEURL;?>pacar/detail/<?=$pacarku['id'];?>" class="text-decoration-none badge text-bg-primary">detail</a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
 </div>
