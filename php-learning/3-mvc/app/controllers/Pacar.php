@@ -10,5 +10,16 @@
             $this->view("pacar/index", $data);
             $this->view("templates/footer");
         }
+        
+        public function detail ($id) {
+            $data = array(
+                "judul" => "Detail Pacar",
+                "pacarku" => $this->model("Pacar_model")->detailPacar($id)
+            );
+            
+            $this->view("templates/header", $data);
+            $this->view("pacar/detail", $data);
+            $this->view("templates/footer");
+        }
     }
 ?>
