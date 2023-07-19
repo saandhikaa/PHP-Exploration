@@ -10,11 +10,11 @@ To see a live demo of the PHP projects implemented in this repository, please vi
 
 The repository includes the following:
 
-- `basic-code`: This directory contains basic PHP code snippets that cover fundamental concepts and syntax. It includes examples for variables, loops, conditional statements, functions, and more.
+- [`basic-code`](/basic-code): This directory contains basic PHP code snippets that cover fundamental concepts and syntax. It includes examples for variables, loops, conditional statements, functions, and more.
 
-- `oop-examples`: This directory contains examples and exercises related to basic object-oriented programming concepts in PHP. It covers topics such as classes, objects, inheritance, and encapsulation.
+- [`oop-concept`](/oop-concept): This directory contains examples and exercises related to basic object-oriented programming concepts in PHP. It covers topics such as classes, objects, inheritance, and encapsulation.
 
-- `mvc-demo`: This directory showcases a simple implementation of the Model-View-Controller (MVC) pattern using PHP. It provides a basic structure for separating business logic, presentation, and data access.
+- [`mvc-application`](/mvc-application): This directory showcases a simple implementation of the Model-View-Controller (MVC) pattern using PHP. It provides a basic structure for separating business logic, presentation, and data access.
 
 ## Usage
 
@@ -25,9 +25,9 @@ The repository includes the following:
 
 2. Refer to the `basic-code` directory for basic PHP code snippets. These examples cover fundamental concepts and syntax, allowing you to practice and solidify your PHP skills.
 
-3. Explore the `oop-examples` directory to learn about different OOP concepts in PHP. Each example is provided with comments and explanations for better understanding.
+3. Explore the `oop-concept` directory to learn about different OOP concepts in PHP. Each example is provided with comments and explanations for better understanding.
 
-4. Check out the `mvc-demo` directory to see a basic implementation of the MVC pattern in PHP. Follow the comments and directory structure to get a grasp of the separation of concerns.
+4. Check out the `mvc-application` directory to see a basic implementation of the MVC pattern in PHP. Follow the comments and directory structure to get a grasp of the separation of concerns.
 
 5. Feel free to modify the code, experiment, and further enhance your PHP skills!
 
