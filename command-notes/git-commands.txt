@@ -49,6 +49,8 @@ git remote set-url <name> <new-url>
 git push -u <remote-name> <branch-name>
 git fetch
 git pull
+git push
+git push <remote-name> <current-branch-name>
 
 
 git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
