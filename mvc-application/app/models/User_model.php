@@ -1,9 +1,9 @@
 <?php
     class User_model {
-        private $nama = "snow white";
+        private $agency = "Astronaut Symphony";
         
         public function getUser() {
-            return $this->nama;
+            return $this->agency;
         }
     }
 ?>

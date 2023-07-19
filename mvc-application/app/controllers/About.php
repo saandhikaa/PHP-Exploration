@@ -2,7 +2,7 @@
     class About extends Controller {
         public function index() {
             $data = array(
-                "judul" => "Tentang saya"
+                "title" => "About Us"
             );
             
             $this->view("templates/header", $data);

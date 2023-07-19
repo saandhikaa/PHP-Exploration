@@ -2,23 +2,22 @@
     class Home extends Controller {
         public function index() {
             $data = array(
-                "judul" => "Beranda",
-                "nama" => $this->model('User_model')->getUser()
+                "title" => "Home"
             );
             
             $this->view("templates/header", $data);
-            $this->view("home/index", $data);
+            $this->view("home/index");
             $this->view("templates/footer");
         }
         
-        public function detail($nama = "...") {
+        public function greeting($name = "...") {
             $data = array(
-                "judul" => "Detail",
-                "nama" => ucwords($nama)
+                "title" => "Greetings",
+                "name" => ucwords($name)
             );
             
             $this->view("templates/header", $data);
-            $this->view("home/detail", $data);
+            $this->view("home/greeting", $data);
             $this->view("templates/footer");
         }
     }

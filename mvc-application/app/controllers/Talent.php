@@ -1,24 +1,24 @@
 <?php
-    class Pacar extends Controller {
+    class Talent extends Controller {
         public function index() {
             $data = array(
-                "judul" => "Daftar Pacar",
-                "pacarku" => $this->model("Pacar_model")->daftarPacar()
+                "title" => "All Talent",
+                "talent" => $this->model("Talent_model")->talentList()
             );
             
             $this->view("templates/header", $data);
-            $this->view("pacar/index", $data);
+            $this->view("talent/index", $data);
             $this->view("templates/footer");
         }
         
         public function detail ($id) {
             $data = array(
-                "judul" => "Detail Pacar",
-                "pacarku" => $this->model("Pacar_model")->detailPacar($id)
+                "title" => "Biography",
+                "talent" => $this->model("Talent_model")->talentDetail($id)
             );
             
             $this->view("templates/header", $data);
-            $this->view("pacar/detail", $data);
+            $this->view("talent/detail", $data);
             $this->view("templates/footer");
         }
     }
