@@ -17,7 +17,7 @@
             Buckle up for an unforgettable adventure with Astronaut Symphony Entertainment!
         </p>
         <p class="fs-6 fw-bold">
-            **Reach for the stars, and let the symphony begin!**
+            Reach for the stars, and let the symphony begin!
         </p>
     </div>
 </div>
