@@ -21,5 +21,20 @@
             $this->view("talent/detail", $data);
             $this->view("templates/footer");
         }
+        
+        public function newtalent() {
+            // Clean up the $_POST array using trim()
+            $data['id'] = time();
+            $data['name'] = trim($_POST['name']);
+            $data['birthdate'] = $_POST['birthdate'];
+            $data['birthplace'] = trim($_POST['birthplace']);
+            $data['occupation'] = trim($_POST['occupation']);
+            $data['nationality'] = trim($_POST['nationality']);
+            
+            if ($this->model('Talent_model')->newTalent($data) > 0) {
+                header('Location: ' . BASEURL . '/talent');
+                exit;
+            }
+        }
     }
 ?>
