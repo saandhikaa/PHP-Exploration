@@ -32,6 +32,11 @@
             $data['nationality'] = trim($_POST['nationality']);
             
             if ($this->model('Talent_model')->newTalent($data) > 0) {
+                Flasher::setFlash("New talent add", "successfully", "success");
+                header('Location: ' . BASEURL . '/talent');
+                exit;
+            } else {
+                Flasher::setFlash("New talent add", "failed", "danger");
                 header('Location: ' . BASEURL . '/talent');
                 exit;
             }
