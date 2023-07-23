@@ -5,9 +5,9 @@
         <ul class="list-group">
             <?php foreach ($data['talent'] as $talent): ?>
                 <li class="list-group-item">
-                    <?= $talent['name_'] ?>
+                    <?= $tn = $talent['name_'] ?>
                     <a href="<?= BASEURL ?>/talent/detail/<?= $talent['id'] ?>" class="text-decoration-none badge text-bg-primary float-end ms-2">detail</a>
-                    <a href="<?= BASEURL ?>/talent/delete/<?= $talent['id'] ?>" class="text-decoration-none badge text-bg-danger float-end ms-2">delete</a>
+                    <a href="<?= BASEURL ?>/talent/delete/<?= $talent['id'] ?>" class="text-decoration-none badge text-bg-danger float-end ms-2" onclick="return confirm('Delete Talent: <?= $tn ?> ?');">delete</a>
                 </li>
             <?php endforeach ?>
         </ul>
