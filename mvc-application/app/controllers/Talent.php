@@ -22,6 +22,18 @@
             $this->view("templates/footer");
         }
         
+        public function delete ($id) {
+            if ($this->model('Talent_model')->deleteTalent($id) > 0) {
+                Flasher::setFlash("Talent delete", "successfully", "success");
+                header('Location: ' . BASEURL . '/talent');
+                exit;
+            } else {
+                Flasher::setFlash("Talent delete", "failed", "danger");
+                header('Location: ' . BASEURL . '/talent');
+                exit;
+            }
+        }
+        
         public function newtalent() {
             // Clean up the $_POST array using trim()
             $data['id'] = time();
