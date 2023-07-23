@@ -18,6 +18,15 @@
             return $this->db->single();
         }
         
+        public function deleteTalent ($id) {
+            $this->db->query('DELETE FROM ' . $this->table . ' WHERE id=:id');
+            $this->db->bind('id', $id);
+            
+            $this->db->execute();
+            
+            return $this->db->rowCount();
+        }
+        
         public function newTalent ($data) {
             $query = "INSERT INTO talent (id, name_, birthdate_, birthplace_, occupation_, nationality_) VALUES (:id, :name_, :birthdate_, :birthplace_, :occupation_, :nationality_)";
             
