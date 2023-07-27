@@ -7,13 +7,13 @@
                 <li class="list-group-item">
                     <?= $tn = $talent['name_'] ?>
                     <a href="<?= BASEURL ?>/talent/delete/<?= $talent['id'] ?>" class="text-decoration-none badge text-bg-danger float-end ms-2" onclick="return confirm('Delete Talent: <?= $tn ?> ?');">delete</a>
-                    <a href="<?= BASEURL ?>/talent/edit/<?= $talent['id'] ?>" class="text-decoration-none badge text-bg-success float-end ms-2" data-bs-toggle="modal" data-bs-target="#newTalent">edit</a>
+                    <a href="<?= BASEURL ?>/talent/edit/<?= $talent['id'] ?>" class="text-decoration-none badge text-bg-success float-end ms-2 formEditTalent" data-bs-toggle="modal" data-bs-target="#newTalent">edit</a>
                     <a href="<?= BASEURL ?>/talent/detail/<?= $talent['id'] ?>" class="text-decoration-none badge text-bg-primary float-end ms-2">detail</a>
                 </li>
             <?php endforeach ?>
         </ul>
         
-        <button type="button" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#newTalent">New Talent</button>
+        <button type="button" class="btn btn-primary my-3 formNewTalent" data-bs-toggle="modal" data-bs-target="#newTalent">New Talent</button>
     </div>
 </div>
 
