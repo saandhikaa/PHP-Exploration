@@ -7,6 +7,7 @@ $(function() {
     
     $('.formEditTalent').on('click', function() {
         $('#modalLabel').html('Edit Talent');
+        $('.modal-content form').attr('action', BASEURL + '/talent/edit');
         const id = $(this).data('id');
         
         $.ajax({
