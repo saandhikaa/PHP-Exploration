@@ -57,5 +57,24 @@
         public function getdetail() {
             echo json_encode($this->model('Talent_model')->talentDetail($_POST['id']));
         }
+        
+        public function edit() {
+            $data['id'] = $_POST['id'];
+            $data['name'] = trim($_POST['name']);
+            $data['birthdate'] = $_POST['birthdate'];
+            $data['birthplace'] = trim($_POST['birthplace']);
+            $data['occupation'] = trim($_POST['occupation']);
+            $data['nationality'] = trim($_POST['nationality']);
+            
+            if ($this->model('Talent_model')->editTalent($data) > 0) {
+                Flasher::setFlash("Edit talent data", "successfully", "success");
+                header('Location: ' . BASEURL . '/talent');
+                exit;
+            } else {
+                Flasher::setFlash("Edit talent data", "failed", "danger");
+                header('Location: ' . BASEURL . '/talent');
+                exit;
+            }
+        }
     }
 ?>
