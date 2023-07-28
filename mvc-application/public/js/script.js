@@ -10,7 +10,7 @@ $(function() {
         const id = $(this).data('id');
         
         $.ajax({
-            url: BASEURL + '/talent/edit', 
+            url: BASEURL + '/talent/getdetail', 
             data: {id : id}, 
             method: 'post', 
             dataType: 'json', 

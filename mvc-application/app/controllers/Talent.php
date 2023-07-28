@@ -54,7 +54,7 @@
             }
         }
         
-        public function edit() {
+        public function getdetail() {
             echo json_encode($this->model('Talent_model')->talentDetail($_POST['id']));
         }
     }
