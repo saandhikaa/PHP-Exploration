@@ -53,5 +53,9 @@
                 exit;
             }
         }
+        
+        public function edit() {
+            echo json_encode($this->model('Talent_model')->talentDetail($_POST['id']));
+        }
     }
 ?>
