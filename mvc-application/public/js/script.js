@@ -12,7 +12,11 @@ $(function() {
             method: 'post', 
             dataType: 'json', 
             success: function(data) {
-                console.log(data);
+                $('#name').val(data.name_);
+                $('#birthdate').val(data.birthdate_);
+                $('#birthplace').val(data.birthplace_);
+                $('#occupation').val(data.occupation_);
+                $('#nationality').val(data.nationality_);
             }
         });
     });
