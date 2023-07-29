@@ -42,5 +42,21 @@
             
             return $this->db->rowCount();
         }
+        
+        public function editTalent($data) {
+            $query = "UPDATE talent SET name_ = :name_, birthdate_ = :birthdate_, birthplace_ = :birthplace_, occupation_ = :occupation_, nationality_ = :nationality_ WHERE id = :id";
+            
+            $this->db->query($query);
+            $this->db->bind('id', $data['id']);
+            $this->db->bind('name_', $data['name']);
+            $this->db->bind('birthdate_', $data['birthdate']);
+            $this->db->bind('birthplace_', $data['birthplace']);
+            $this->db->bind('occupation_', $data['occupation']);
+            $this->db->bind('nationality_', $data['nationality']);
+            
+            $this->db->execute();
+           
+            return $this->db->rowCount();
+        }
     }
 ?>
