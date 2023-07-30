@@ -76,5 +76,16 @@
                 exit;
             }
         }
+        
+        public function search() {
+            $data = array(
+                "title" => "All Talent",
+                "talent" => $this->model("Talent_model")->searchTalent()
+            );
+            
+            $this->view("templates/header", $data);
+            $this->view("talent/index", $data);
+            $this->view("templates/footer");
+        }
     }
 ?>
