@@ -1,7 +1,13 @@
 <div class="row mx-3 my-4">
-    <h2>Talent list</h2>
+    <h2 class="mb-3">Talent list</h2>
     <div class="d-grid">
         <?php Flasher::flash() ?>
+        
+        <form action="<?= BASEURL ?>/talent/search" class="input-group mb-3">
+            <input type="text" class="form-control border border-primary" placeholder="Talent's name">
+            <button class="btn btn-primary" type="submit" id="">Search</button>
+        </form>
+        
         <ul class="list-group">
             <?php foreach ($data['talent'] as $talent): ?>
                 <li class="list-group-item">
