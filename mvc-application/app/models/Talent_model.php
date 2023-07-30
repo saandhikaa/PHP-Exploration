@@ -58,5 +58,13 @@
            
             return $this->db->rowCount();
         }
+        
+        public function searchTalent() {
+            $keyword = $_POST['keyword'];
+            $query = "SELECT * FROM " . $this->table . " WHERE name_ LIKE :keyword";
+            $this->db->query($query);
+            $this->db->bind('keyword', "%$keyword%");
+            return $this->db->resultSet();
+        }
     }
 ?>
