@@ -3,9 +3,9 @@
     <div class="d-grid">
         <?php Flasher::flash() ?>
         
-        <form action="<?= BASEURL ?>/talent/search" class="input-group mb-3">
-            <input type="text" class="form-control border border-primary" placeholder="Talent's name">
-            <button class="btn btn-primary" type="submit" id="">Search</button>
+        <form action="<?= BASEURL ?>/talent/search" method="post" class="input-group mb-3">
+            <input type="text" class="form-control border border-primary" name="keyword" placeholder="Talent's name">
+            <button class="btn btn-primary" type="submit">Search</button>
         </form>
         
         <ul class="list-group">
