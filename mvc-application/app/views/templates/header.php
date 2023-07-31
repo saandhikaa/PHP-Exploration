@@ -21,10 +21,10 @@
                         <a class="nav-link" href="<?= BASEURL ?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= BASEURL ?>/talent">Talent</a>
+                        <a class="nav-link" href="<?= BASEURL ?>/Talent">Talent</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= BASEURL ?>/about">About us</a>
+                        <a class="nav-link" href="<?= BASEURL ?>/About">About us</a>
                     </li>
                 </ul>
             </div>
